@@ -1,15 +1,15 @@
 *** Settings ***
+Library         app.py
 Library         SeleniumLibrary
  
-Test Setup          Nova sessão
-Test Teardown       Encerra sessão
- 
 *** Variables ***
-${url}                  https://inovacaodrywall.com.br/wp-login.php?redirect_to=https%3A%2F%2Finovacaodrywall.com.br%2Fwp-admin%2F&reauth=1
- 
+${url}                  %{WEBSITE_URL}
+
+
 *** Keywords ***
-Nova sessão    
+Nova sessao    
     Open Browser           ${url}         chrome
+    Maximize Browser Window
  
-Encerra sessão
-    Close Browser    
+Encerra sessao
+    Close Browser  

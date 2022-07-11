@@ -1,39 +1,25 @@
 *** Settings ***
 Resource        base.robot
- 
-Test Setup          Nova sessão
-Test Teardown       Encerra sessão
 
+Test Setup          Nova sessao
+Test Teardown       Encerra sessao
+
+*** Variables ***
+${erro_no_login}                  1
 
 *** Test Cases ***
-Login validação
-    Go To                       ${url}  
-    Maximize Browser Window
-    Input Text                  id:user_login              user
-    Input Text                  id:user_pass              password
+Login
+    FOR    ${index}    IN RANGE    1    5
+        IF    ${erro_no_login} == 0    CONTINUE
+        ${erro_no_login}=       Faz Login     %{LOGIN_USER_${index}}     %{LOGIN_PASS_${index}}  
+    END
+ 
+*** Keywords ***
+Faz Login
+    [Arguments]  ${login_user}  ${login_pass}
+    Input Text                  id:user_login                   ${login_user}
+    Input Text                  id:user_pass                    ${login_pass}
     Click Element               id:wp-submit
- 
-    ${message}=                 Get WebElement              id:login_error      
-    #Page Should Not Countain        ERROR: The username or password you entered is incorrect.
- 
-#Login
-    Input Text                  id:user_login              user1
-    Input Text                  id:user_pass              password1
-    Click Element               id:wp-submit
- 
-    ${message}=                 Get WebElement              id:login_error                  
-    #Page Should Not Countain        ERROR: The username or password you entered is incorrect.
- 
-#Login
-    Input Text                  id:user_login              user2
-    Input Text                  id:user_pass               password2
-    Click Element               id:wp-submit
- 
-    ${message}=                 Get WebElement              id:login_error      
-    #Page Should Not Countain        ERROR: The username or password you entered is incorrect.
- 
-#Login
-    Input Text                  id:user_login              user3
-    Input Text                  id:user_pass              password3
-    Click Element               id:wp-submit
-    Page Should Not Countain        ERROR: The username or password you entered is incorrect.
+    Sleep                       2
+    ${erro_no_login}=           Get Element Count              id:login_error     
+    RETURN                      ${erro_no_login}
