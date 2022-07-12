@@ -1,4 +1,5 @@
 .env
+env
 logs
 log
 __pycache__
