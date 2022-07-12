@@ -1,4 +1,6 @@
-    
+*** Variables ***
+${erro_no_login}                  1
+
 *** Keywords ***
 Faz Login
     FOR    ${index}    IN RANGE    1    5
