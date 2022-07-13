@@ -1,7 +1,9 @@
+*** Variables ***
+${website_url}
 
 *** Keywords ***
 Nova sessao    
-    Open Browser           %{WEBSITE_URL}         chrome    
+    Open Browser           ${website_url}            chrome    
     Maximize Browser Window
  
 Encerra sessao
