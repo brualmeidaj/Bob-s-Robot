@@ -1,5 +1,5 @@
 *** Variables ***
-${website_url}
+${website_url}                                                 
 
 *** Keywords ***
 Nova sessao    

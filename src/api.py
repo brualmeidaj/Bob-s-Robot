@@ -4,12 +4,14 @@ import os
 
 app = Flask(__name__)
 
-@app.route("/fide/", methods=["GET", "POST"])
+@app.route("/fide/", methods=["POST"])
 def welcome(): 
     html_string = "n/a"
-    path = os.path.dirname(os.path.realpath(__file__)) + "/tests/bobs.robot"
+    path = "./src/tests/bobs.robot"
     vars = (f"--variable website_url:{request.json['website_url']}")
+    print(path)
     os.system(f"python -m robot {vars} -d ./logs {path}")
+    print('oi')
     with open("./logs/log.html", "r", encoding="utf8") as f:
         html_string = f.read()
     return html_string

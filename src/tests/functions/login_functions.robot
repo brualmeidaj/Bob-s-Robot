@@ -14,5 +14,5 @@ Tenta Logar
     Input Text                  id:user_pass                    ${login_pass}
     Click Element               id:wp-submit
     Sleep                       2
-    ${erro_no_login}=           Get Element Count              id:login_error     
+    ${erro_no_login}=           Get Element Count               id:login_error     
     RETURN                      ${erro_no_login}
