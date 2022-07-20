@@ -1,9 +1,10 @@
 *** Variables ***
-${website_url}                                                 
+${website_url}                            
 
 *** Keywords ***
 Nova sessao    
-    Open Browser           ${website_url}            chrome    
+    Open Browser           about:blank               chrome    
+    Acessa Pagina De Login
     Maximize Browser Window
  
 Encerra sessao

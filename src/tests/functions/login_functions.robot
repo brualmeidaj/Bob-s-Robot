@@ -1,7 +1,19 @@
 *** Variables ***
-${erro_no_login}                  1
+${erro_no_login}                    1              
+${variableone}                   0
+
 
 *** Keywords ***
+Acessa Pagina De Login
+    Go To                               ${website_url}/wp-login.php
+    ${rightlogin}=       Get Element Count               id:login 
+       
+    IF      ${rightlogin} == 0        
+       ${is_controle}         Set Variable        1
+       Set Global Variable          ${is_controle}     
+       Go To         ${website_url}/controle        ${rightlogin}=       Get Element Count               id:login 
+    END
+
 Faz Login
     FOR    ${index}    IN RANGE    1    5
         IF    ${erro_no_login} == 0    CONTINUE

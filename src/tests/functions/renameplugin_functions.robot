@@ -13,8 +13,8 @@ ${botaosalvar}          css:input[value="Salvar alterações"]
 *** Keywords ***
 
 Entrar na página de plugins e pesquisar plugin
-    Click Element           ${botaoplugins}                
-    Click Element           ${botaoadicionar}
+    Go To                   ${website_url}/plugin-install.php
+    Sleep                   10
     Input Text              ${boxpesquisar}           ${plugin_rename}
     Page Should Contain        Instalar Plugins
     
