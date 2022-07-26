@@ -1,6 +1,6 @@
 *** Variables ***
 ${erro_no_login}                    1              
-${variableone}                   0
+${is_controle}                   0
 
 
 *** Keywords ***

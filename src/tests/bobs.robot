@@ -12,6 +12,7 @@ Bobs robot
         Instalar e ativar plugin Rename
         Configurar Plugin Rename 
     END
-
+    Entrar na página de plugins e pesquisar plugin 404
+    Instalar e ativar o plugin 404
 
  
