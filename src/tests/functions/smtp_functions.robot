@@ -1,13 +1,19 @@
 *** Variables ***
 ${website_url}
-${boxpesquisar}         class:wp-filter-search
-${instalareativar}      xpath://*[@id="the-list"]//li
-
+${FILE}                     C:\\Users\\Bruna Almeida\\cimy_swift_smtp.zip
+${upload}                   css:input[name="pluginzip"]
 
 *** Keywords ***
+Processa SMTP
+    Entrar na página de plugins e fazer upload
 
-Entrar na página de plugins e pesquisar plugin SMTP
-    Sleep                   15
-    Go To                   https://inovacaodrywall.com.br/wp-admin/plugin-install.php
-    Sleep                   15
-Instalar e ativar o plugin SMTP
+Entrar na página de plugins e fazer upload 
+    Go To                                   ${website_url}/wp-admin/plugin-install.php
+    Sleep                                   2
+    Go To                                   ${website_url}/wp-admin/plugin-install.php?tab=upload
+    Sleep                                   2
+    Choose File             ${upload}           ${FILE}
+    Sleep                   2
+    Click Button            id:install-plugin-submit
+    
+   

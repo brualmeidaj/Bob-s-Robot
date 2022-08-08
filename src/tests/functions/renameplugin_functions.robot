@@ -9,12 +9,18 @@ ${mudarurl}             id:rwl-page-input
 ${botaosalvar}          css:input[value="Salvar alterações"]
 
 *** Keywords ***
+Processa WpRename
+    IF      ${is_controle} == 0 
+       Pesquisa Wp Rename
+       Instalar e ativar plugin Rename
+       Configurar Plugin Rename 
+    END
 
-Entrar na página de plugins e pesquisar plugin
-    Go To                   https://inovacaodrywall.com.br/wp-admin/plugin-install.php
+
+Pesquisa Wp Rename
+    Go To                   ${website_url}/wp-admin/plugin-install.php
     Sleep                   15
     Input Text              ${boxpesquisar}           ${plugin_rename}
-    Page Should Contain        Instalar Plugins
     
 Instalar e ativar plugin Rename
     Sleep                           10
@@ -23,8 +29,8 @@ Instalar e ativar plugin Rename
     Click Element                   ${instalareativar}
     
 Configurar Plugin Rename                
-    Go To                           https://inovacaodrywall.com.br/wp-admin/options-permalink.php
-    Sleep                           10
+    Go To                           ${website_url}/wp-admin/options-permalink.php
+    Sleep                           5
     Page Should Contain             ${plugin_rename}
     Clear Element Text              ${mudarurl}
     Sleep                           5

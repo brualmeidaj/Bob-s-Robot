@@ -11,7 +11,8 @@ Acessa Pagina De Login
     IF      ${rightlogin} == 0        
        ${is_controle}         Set Variable        1
        Set Global Variable          ${is_controle}     
-       Go To         ${website_url}/controle        ${rightlogin}=       Get Element Count               id:login 
+       Go To         ${website_url}/controle        
+       ${rightlogin}=       Get Element Count               id:login 
     END
 
 Faz Login
