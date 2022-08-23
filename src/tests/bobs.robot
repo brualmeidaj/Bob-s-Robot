@@ -12,6 +12,9 @@ Bobs robot
     # Processa URL
     # Processa SMTP
     # Processa WP CACHE
-    Processa Configurações de leitura
+    # Processa Configurações de leitura
+    Processa links permanentes
+    # Checar link quebrados site
+    Processa DATABASE
 
  
