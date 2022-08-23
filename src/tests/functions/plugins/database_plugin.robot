@@ -19,7 +19,7 @@ Plugin DATABASE upload
     Input Text              ${searchbox}           ${name_database}
 
 Plugin DATABASE Instalar
-    Sleep                           10
+    Sleep                           5
     Click Element                   ${upload_database}
 
 Plugin DATABASE Ativar

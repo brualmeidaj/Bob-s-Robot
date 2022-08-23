@@ -12,3 +12,5 @@ Resource        ./functions/config/config_leitura.robot
 Resource        ./functions/config/linkspermanentes.robot
 Resource        ./functions/brokenlinkchecker.robot
 Resource        ./functions/plugins/database_plugin.robot
+Resource        ./functions/plugins/functionsplugins.robot
+Resource        ./functions/config/functionsconfig.robot
