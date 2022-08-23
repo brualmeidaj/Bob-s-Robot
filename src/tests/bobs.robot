@@ -8,7 +8,7 @@ Test Setup          Nova sessao
 Bobs robot
     Faz Login
     # Processa Plugins 
-    # Processa Configurações
+    Processa Configurações
     # Checar link quebrados site
     
 

@@ -1,6 +1,7 @@
 *** Settings ***
 Library         ../app.py
 Library         SeleniumLibrary
+Library         OperatingSystem
 Resource        ./functions/plugins/login_functions.robot
 Resource        ./browser_functions.robot
 Resource        ./functions/plugins/renameplugin_functions.robot
