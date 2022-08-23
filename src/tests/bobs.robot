@@ -10,6 +10,8 @@ Bobs robot
     # Processa WpRename
     # Processa 404
     # Processa URL
-    Processa SMTP
+    # Processa SMTP
+    # Processa WP CACHE
+    Processa Configurações de leitura
 
  
