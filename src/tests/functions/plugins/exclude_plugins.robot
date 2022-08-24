@@ -33,48 +33,41 @@ Exclusão Askimet Anti-Spam
     Sleep               5
     Click Element       ${excludeaskimet}
     Handle Alert        action=ACCEPT
-    Sleep               5
 Desativar e Excluir Booked
     Sleep               10
     Click Element       ${desativatebooked}
     Sleep               5
     Click Element       ${excludebooked}
     Handle Alert        action=ACCEPT
-    Sleep               5
 Desativar e Excluir Breadcrumb
     Click Element       ${desativatebreadcrumb}
     Sleep               5
     Click Element       ${excludebreadcrumb}
     Handle Alert        action=ACCEPT
-    Sleep               5
 Desativar e Excluir Smash Balloon 
     Sleep               10
     Click Element       ${desativatesmash}
     Sleep               10
     Click Element       ${excludesmash}
     Handle Alert        action=ACCEPT
-    Sleep               5
 Desativar e Excluir All in One
     Sleep               10
     Click Element       ${desativateallinone}
     Sleep               10
     Click Element       ${excludeallinone}
     Handle Alert        action=ACCEPT
-    Sleep               5
 Desativar e Excluir Honeypot
     Sleep               10
     Click Element       ${desativatehoneypot}
     Sleep               10
     Click Element       ${excludehoneypot}
     Handle Alert        action=ACCEPT
-    Sleep               5
 Desativar e Excluir Custom Icons
     Sleep               10
     Click Element       ${desativatecustomicons}
     Sleep               10
     Click Element       ${excludecustomicons}
     Handle Alert        action=ACCEPT
-    Sleep               5
 Desativar e Excluir Recent Tweets
     Sleep               10
     Click Element       ${desativaterecenttweets}
