@@ -25,7 +25,8 @@ Processa Exclusão de plugins
     # Desativar e Excluir Smash Balloon
     # Desativar e Excluir All in One
     # Desativar e Excluir Honeypot
-    Desativar e Excluir Custom Icons
+    # Desativar e Excluir Custom Icons
+    Desativar e Excluir Recent Tweets
 
 Exclusão Askimet Anti-Spam
     Go To               ${pagepluginsunstall}
@@ -75,7 +76,6 @@ Desativar e Excluir Custom Icons
     Handle Alert        action=ACCEPT
     Sleep               5
 Desativar e Excluir Recent Tweets
-    Go To               ${pagepluginsunstall}
     Sleep               10
     Click Element       ${desativaterecenttweets}
     Sleep               10
