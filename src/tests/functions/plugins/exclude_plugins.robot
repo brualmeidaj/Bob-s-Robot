@@ -1,7 +1,7 @@
 *** Variables ***
 ${pagepluginsunstall}               ${website_url}/wp-admin/plugins.php
 ${excludeaskimet}                   id:delete-akismet
-${desativatebooked}                  xpath://*[@aria-label='Desativar Booked']
+${desativatebooked}                 xpath://*[@aria-label='Desativar Booked']
 ${excludebooked}                    xpath://*[@aria-label='Excluir Booked']
 ${desativatebreadcrumb}             xpath://*[@aria-label='Desativar Breadcrumb NavXT']
 ${excludebreadcrumb}                xpath://*[@aria-label='Excluir Breadcrumb NavXT']
