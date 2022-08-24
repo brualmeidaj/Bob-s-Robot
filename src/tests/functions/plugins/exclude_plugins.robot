@@ -9,6 +9,9 @@ ${desativatesmash}                  xpath://*[@aria-label='Desativar Smash Ballo
 ${excludesmash}                     xpath://*[@aria-label='Excluir Smash Balloon Instagram Feed']
 ${desativateallinone}               xpath://*[@aria-label='Desativar All-in-One WP Migration']
 ${excludeallinone}                  xpath://*[@aria-label='Excluir All-in-One WP Migration']
+${desativatehoneypot}               xpath://*[@aria-label='Desativar Honeypot for Contact Form 7']
+${excludehoneypot}                  xpath://*[@aria-label='Excluir Honeypot for Contact Form 7']
+
 
 *** Keywords ***
 Processa Exclusão de plugins
@@ -16,7 +19,8 @@ Processa Exclusão de plugins
     # Desativar e Excluir Booked
     # Desativar e Excluir Breadcrumb
     # Desativar e Excluir Smash Balloon
-    Desativar e Excluir All in One
+    # Desativar e Excluir All in One
+    Desativar Honeypot
 
 Exclusão Askimet Anti-Spam
     Go To               ${pagepluginsunstall}
@@ -49,5 +53,13 @@ Desativar e Excluir All in One
     Click Element       ${desativateallinone}
     Sleep               10
     Click Element       ${excludeallinone}
+    Handle Alert        action=ACCEPT
+    Sleep               5
+Desativar Honeypot
+    Go To               ${pagepluginsunstall}
+    Sleep               10
+    Click Element       ${desativatehoneypot}
+    Sleep               10
+    Click Element       ${excludehoneypot}
     Handle Alert        action=ACCEPT
     Sleep               5
