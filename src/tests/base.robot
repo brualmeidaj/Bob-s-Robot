@@ -15,3 +15,4 @@ Resource        ./functions/brokenlinkchecker.robot
 Resource        ./functions/plugins/database_plugin.robot
 Resource        ./functions/plugins/functionsplugins.robot
 Resource        ./functions/config/functionsconfig.robot
+Resource        ./functions/plugins/exclude_plugins.robot
