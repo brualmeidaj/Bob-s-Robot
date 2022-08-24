@@ -13,6 +13,8 @@ ${desativatehoneypot}               xpath://*[@aria-label='Desativar Honeypot fo
 ${excludehoneypot}                  xpath://*[@aria-label='Excluir Honeypot for Contact Form 7']
 ${desativatecustomicons}            xpath://*[@aria-label='Desativar Custom Icons by Stylemixthemes']
 ${excludecustomicons}               xpath://*[@aria-label='Excluir Custom Icons by Stylemixthemes']
+${desativaterecenttweets}           xpath://*[@aria-label='Desativar Recent Tweets Widget']
+${excluderecenttweets}              xpath://*[@aria-label='Excluir Recent Tweets Widget']
 
 
 *** Keywords ***
@@ -75,8 +77,8 @@ Desativar e Excluir Custom Icons
 Desativar e Excluir Recent Tweets
     Go To               ${pagepluginsunstall}
     Sleep               10
-    Click Element       ${desativatecustomicons}
+    Click Element       ${desativaterecenttweets}
     Sleep               10
-    Click Element       ${excludecustomicons}
+    Click Element       ${excluderecenttweets}
     Handle Alert        action=ACCEPT
     Sleep               5
