@@ -7,13 +7,16 @@ ${desativatebreadcrumb}             xpath://*[@aria-label='Desativar Breadcrumb 
 ${excludebreadcrumb}                xpath://*[@aria-label='Excluir Breadcrumb NavXT']
 ${desativatesmash}                  xpath://*[@aria-label='Desativar Smash Balloon Instagram Feed']
 ${excludesmash}                     xpath://*[@aria-label='Excluir Smash Balloon Instagram Feed']
+${desativateallinone}               xpath://*[@aria-label='Desativar All-in-One WP Migration']
+${excludeallinone}                  xpath://*[@aria-label='Excluir All-in-One WP Migration']
 
 *** Keywords ***
 Processa Exclusão de plugins
     # Exclusão Askimet Anti-Spam
     # Desativar e Excluir Booked
     # Desativar e Excluir Breadcrumb
-    Desativar e Excluir Smash Balloon
+    # Desativar e Excluir Smash Balloon
+    Desativar e Excluir All in One
 
 Exclusão Askimet Anti-Spam
     Go To               ${pagepluginsunstall}
@@ -39,5 +42,12 @@ Desativar e Excluir Smash Balloon
     Click Element       ${desativatesmash}
     Sleep               10
     Click Element       ${excludesmash}
+    Handle Alert        action=ACCEPT
+    Sleep               5
+Desativar e Excluir All in One
+    Sleep               10
+    Click Element       ${desativateallinone}
+    Sleep               10
+    Click Element       ${excludeallinone}
     Handle Alert        action=ACCEPT
     Sleep               5
