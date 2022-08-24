@@ -11,6 +11,8 @@ ${desativateallinone}               xpath://*[@aria-label='Desativar All-in-One 
 ${excludeallinone}                  xpath://*[@aria-label='Excluir All-in-One WP Migration']
 ${desativatehoneypot}               xpath://*[@aria-label='Desativar Honeypot for Contact Form 7']
 ${excludehoneypot}                  xpath://*[@aria-label='Excluir Honeypot for Contact Form 7']
+${desativatecustomicons}            xpath://*[@aria-label='Desativar Custom Icons by Stylemixthemes']
+${excludecustomicons}               xpath://*[@aria-label='Excluir Custom Icons by Stylemixthemes']
 
 
 *** Keywords ***
@@ -20,7 +22,8 @@ Processa Exclusão de plugins
     # Desativar e Excluir Breadcrumb
     # Desativar e Excluir Smash Balloon
     # Desativar e Excluir All in One
-    Desativar Honeypot
+    # Desativar e Excluir Honeypot
+    Desativar e Excluir Custom Icons
 
 Exclusão Askimet Anti-Spam
     Go To               ${pagepluginsunstall}
@@ -55,11 +58,25 @@ Desativar e Excluir All in One
     Click Element       ${excludeallinone}
     Handle Alert        action=ACCEPT
     Sleep               5
-Desativar Honeypot
-    Go To               ${pagepluginsunstall}
+Desativar e Excluir Honeypot
     Sleep               10
     Click Element       ${desativatehoneypot}
     Sleep               10
     Click Element       ${excludehoneypot}
+    Handle Alert        action=ACCEPT
+    Sleep               5
+Desativar e Excluir Custom Icons
+    Sleep               10
+    Click Element       ${desativatecustomicons}
+    Sleep               10
+    Click Element       ${excludecustomicons}
+    Handle Alert        action=ACCEPT
+    Sleep               5
+Desativar e Excluir Recent Tweets
+    Go To               ${pagepluginsunstall}
+    Sleep               10
+    Click Element       ${desativatecustomicons}
+    Sleep               10
+    Click Element       ${excludecustomicons}
     Handle Alert        action=ACCEPT
     Sleep               5
