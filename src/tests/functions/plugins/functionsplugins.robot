@@ -7,4 +7,3 @@ Processa Plugins
     # Processa SMTP
     # Processa WP CACHE
     # Processa DATABASE
-    Processa Exclusão de plugins
