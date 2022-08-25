@@ -7,8 +7,14 @@ ${discusscheckbox}                  css:input[name="default_comment_status"]
 
 
 *** Keywords ***
+    
 Processa Configurações de discussão
-    Cópia arquivo
+    ${discussioncheck}=             Get Element Count               xpath://*[contains(text(), "laptop")]
+    Go To               ${configdiscuss}
+
+    IF  ${discussioncheck} == 0
+        Cópia arquivo
+    END
 
 Cópia arquivo
     Go To               ${configdiscuss}
