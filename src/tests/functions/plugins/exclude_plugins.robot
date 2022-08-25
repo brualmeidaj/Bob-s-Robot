@@ -7,7 +7,7 @@ ${desativatebreadcrumb}             xpath://*[@aria-label='Desativar Breadcrumb 
 ${excludebreadcrumb}                xpath://*[@aria-label='Excluir Breadcrumb NavXT']
 ${desativatesmash}                  xpath://*[@aria-label='Desativar Smash Balloon Instagram Feed']
 ${excludesmash}                     xpath://*[@aria-label='Excluir Smash Balloon Instagram Feed']
-${desativateallinone}               xpath://*[@aria-label='Desativar All-in-One WP Migration']
+${desativateallinone}               id:deactivate-all-in-one-wp-migration
 ${excludeallinone}                  xpath://*[@aria-label='Excluir All-in-One WP Migration']
 ${desativatehoneypot}               xpath://*[@aria-label='Desativar Honeypot for Contact Form 7']
 ${excludehoneypot}                  xpath://*[@aria-label='Excluir Honeypot for Contact Form 7']
@@ -27,13 +27,13 @@ Processa Exclusão de plugins
         Exclusão Askimet Anti-Spam
     END
 
-    ${booked}=             Get Element Count               xpath://*[contains(text(), "Booked")]
+    ${booked}=             Get Element Count               xpath://*[@aria-label='Desativar Booked']
 
     IF  ${booked} != 0
         Desativar e Excluir Booked
     END
 
-    ${breadcrumb}=             Get Element Count               xpath://*[contains(text(), "Breadcrumb NavXT")]
+    ${breadcrumb}=             Get Element Count               xpath://*[@aria-label='Desativar Breadcrumb NavXT']
 
     IF  ${breadcrumb} != 0
         Desativar e Excluir Breadcrumb
