@@ -19,14 +19,57 @@ ${excluderecenttweets}              xpath://*[@aria-label='Excluir Recent Tweets
 
 *** Keywords ***
 Processa Exclusão de plugins
-    # Exclusão Askimet Anti-Spam
-    # Desativar e Excluir Booked
-    # Desativar e Excluir Breadcrumb
-    # Desativar e Excluir Smash Balloon
-    # Desativar e Excluir All in One
-    # Desativar e Excluir Honeypot
-    # Desativar e Excluir Custom Icons
-    Desativar e Excluir Recent Tweets
+    ${askimetantispan}=             Get Element Count               xpath://*[contains(text(), "Akismet Anti-Spam")]
+    Go To               ${pagepluginsunstall}
+
+
+    IF  ${askimetantispan} != 0
+        Exclusão Askimet Anti-Spam
+    END
+
+    ${booked}=             Get Element Count               xpath://*[contains(text(), "Booked")]
+
+    IF  ${booked} != 0
+        Desativar e Excluir Booked
+    END
+
+    ${breadcrumb}=             Get Element Count               xpath://*[contains(text(), "Breadcrumb NavXT")]
+
+    IF  ${breadcrumb} != 0
+        Desativar e Excluir Breadcrumb
+    END
+
+    ${smashballoon}=             Get Element Count               xpath://*[contains(text(), "Smash Balloon Instagram Feed")]
+
+    IF  ${smashballoon} != 0
+        Desativar e Excluir Smash Balloon
+    END
+
+    ${allinone}=             Get Element Count               xpath://*[contains(text(), "All-in-One WP Migration")]
+
+    IF  ${allinone} != 0
+        Desativar e Excluir All in One
+    END
+
+    ${honeypot}=             Get Element Count               xpath://*[contains(text(), "Honeypot for Contact Form 7")]
+
+    IF  ${honeypot} != 0
+        Desativar e Excluir Honeypot
+    END
+
+    ${customicons}=             Get Element Count               xpath://*[contains(text(), "Custom Icons by Stylemixthemes")]
+
+    IF  ${customicons} != 0
+        Desativar e Excluir Custom Icons
+    END
+
+    ${recenttweets}=             Get Element Count               xpath://*[contains(text(), "Recent Tweets Widget")]
+
+    IF  ${recenttweets} != 0
+        Desativar e Excluir Recent Tweets
+    END
+
+    
 
 Exclusão Askimet Anti-Spam
     Go To               ${pagepluginsunstall}

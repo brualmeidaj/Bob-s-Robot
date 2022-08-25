@@ -7,8 +7,8 @@ Test Setup          Nova sessao
 *** Test Cases ***
 Bobs robot
     Faz Login
-    # Processa Plugins 
-    Processa Configurações
+    Processa Plugins 
+    # Processa Configurações
     # Checar link quebrados site
     
 
