@@ -1,22 +1,22 @@
 *** Variables ***
-${is_anyonetheme}                       0
-${temaincorreto}                        1
-${qty_perifericos}                      1
+${allthemes}                                1             
 ${themespage}                               ${website_url}/wp-admin/themes.php
+${excludethemes}                            css:.theme:nth-child(2)             
 ${excluirtema}                              xpath://a[contains(text(),'Excluir')]
 
 *** Keywords ***
 Exclusão de temas periféricos
     Go To                       ${themespage}
-    ${qty_perifericos}=              Get Element Count               css:.theme:not(.active)
+    Sleep                       10
 
-    WHILE           ${qty_perifericos} != 0
-        Exclui Tema
-        ${qty_perifericos}=              Get Element Count               css:.theme:not(.active)
+    ${allthemes}=       Get Element Count               css:.theme
+    WHILE           ${allthemes} != 2 
+        Exclui Tema   
+        ${allthemes}=       Get Element Count               css:.theme
     END
 
 Exclui Tema
-    Click Element        css:.theme:not(.active):nth-child(2)
+    Click Element           ${excludethemes}
     Sleep       10
     Click Element        ${excluirtema}
     Sleep       5
