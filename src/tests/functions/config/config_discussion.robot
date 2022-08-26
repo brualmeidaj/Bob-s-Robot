@@ -4,21 +4,39 @@ ${salvarconfig}                     id:submit
 ${campdenylist}                     id:disallowed_keys
 ${PATH}                             C:\\Users\\Bruna Almeida\\testelogin\\src\\tests\\denylist.txt
 ${discusscheckbox}                  css:input[name="default_comment_status"]
+${campdenylisttwo}                  id:blacklist_keys
 
 
 *** Keywords ***
     
 Processa Configurações de discussão
-    ${discussioncheck}=             Get Element Count               xpath://*[contains(text(), "laptop")]
     Go To               ${configdiscuss}
 
-    IF  ${discussioncheck} == 0
-        Cópia arquivo
+    ${campcheck}=             Get Element Count               id:blacklist_keys
+
+    IF  ${campcheck} != 0
+        Configurar discussões two
     END
 
-Cópia arquivo
-    Go To               ${configdiscuss}
-    Sleep               5
+    ${campcheckone}=             Get Element Count               ${campdenylist}
+    
+    IF  ${campcheckone} != 0
+        Configurar discussões
+    END
+
+Configurar discussões two
+    Wait Until Element Is Visible               ${discusscheckbox}
+    Mouse Down          ${discusscheckbox}
+    Unselect Checkbox       ${discusscheckbox}
+    Sleep               3
+    ${Cmd_Output}       Get File            ${PATH}          encoding=UTF-8    encoding_errors=strict   
+    Input Text          ${campdenylisttwo}            ${Cmd_Output}   
+    Sleep               3
+    Click Element           ${salvarconfig}     
+
+Configurar discussões
+    Wait Until Element Is Visible               ${discusscheckbox}
+    Mouse Down          ${discusscheckbox}
     Unselect Checkbox       ${discusscheckbox}
     Sleep               3
     ${Cmd_Output}       Get File            ${PATH}          encoding=UTF-8    encoding_errors=strict   
