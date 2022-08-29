@@ -1,13 +1,14 @@
 *** Variables ***
 ${pagepluginsunstall}               ${website_url}/wp-admin/plugins.php
-${excludeaskimet}                   id:delete-akismet
+${excludeaskimet}                   xpath://*[@aria-label='Excluir Akismet Anti-Spam']
+${desativaraskimet}                 xpath://*[@aria-label='Desativar Akismet Anti-Spam']
 ${desativatebooked}                 xpath://*[@aria-label='Desativar Booked']
 ${excludebooked}                    xpath://*[@aria-label='Excluir Booked']
 ${desativatebreadcrumb}             xpath://*[@aria-label='Desativar Breadcrumb NavXT']
 ${excludebreadcrumb}                xpath://*[@aria-label='Excluir Breadcrumb NavXT']
 ${desativatesmash}                  xpath://*[@aria-label='Desativar Smash Balloon Instagram Feed']
 ${excludesmash}                     xpath://*[@aria-label='Excluir Smash Balloon Instagram Feed']
-${desativateallinone}               id:deactivate-all-in-one-wp-migration
+${desativateallinone}               xpath://*[@aria-label='Desativar All-in-One WP Migration']
 ${excludeallinone}                  xpath://*[@aria-label='Excluir All-in-One WP Migration']
 ${desativatehoneypot}               xpath://*[@aria-label='Desativar Honeypot for Contact Form 7']
 ${excludehoneypot}                  xpath://*[@aria-label='Excluir Honeypot for Contact Form 7']
@@ -17,10 +18,19 @@ ${desativaterecenttweets}           xpath://*[@aria-label='Desativar Recent Twee
 ${excluderecenttweets}              xpath://*[@aria-label='Excluir Recent Tweets Widget']
 
 
+
+
 *** Keywords ***
 Processa Exclusão de plugins
-    ${askimetantispan}=             Get Element Count               xpath://*[contains(text(), "Akismet Anti-Spam")]
     Go To               ${pagepluginsunstall}
+
+    ${desativaraskimet}=             Get Element Count               xpath://*[@aria-label='Desativar Akismet Anti-Spam']
+
+    IF  ${desativaraskimet} != 0
+        Desativar Askimet
+    END
+
+    ${askimetantispan}=             Get Element Count               xpath://*[contains(text(), "Akismet Anti-Spam")]
 
 
     IF  ${askimetantispan} != 0
@@ -69,52 +79,54 @@ Processa Exclusão de plugins
         Desativar e Excluir Recent Tweets
     END
 
-    
+Desativar Askimet
+    Wait Until Element Is Visible               ${desativaraskimet}
+    Click Element                               ${desativaraskimet}
 
 Exclusão Askimet Anti-Spam
-    Go To               ${pagepluginsunstall}
-    Sleep               5
-    Click Element       ${excludeaskimet}
-    Handle Alert        action=ACCEPT
+    Sleep                                       5
+    Click Element                               ${excludeaskimet}
+    Handle Alert            action=ACCEPT
+
 Desativar e Excluir Booked
-    Sleep               10
-    Click Element       ${desativatebooked}
-    Sleep               5
-    Click Element       ${excludebooked}
+    Sleep                                       5
+    Click Element                               ${desativatebooked}
+    Wait Until Element Is Visible               ${excludebooked}
+    Click Element                               ${excludebooked}
     Handle Alert        action=ACCEPT
 Desativar e Excluir Breadcrumb
-    Click Element       ${desativatebreadcrumb}
-    Sleep               5
-    Click Element       ${excludebreadcrumb}
+    Sleep                                       5
+    Click Element                               ${desativatebreadcrumb}
+    Wait Until Element Is Visible               ${excludebreadcrumb}
+    Click Element                               ${excludebreadcrumb}
     Handle Alert        action=ACCEPT
 Desativar e Excluir Smash Balloon 
-    Sleep               10
-    Click Element       ${desativatesmash}
-    Sleep               10
-    Click Element       ${excludesmash}
+    Sleep                                       5
+    Click Element                               ${desativatesmash}
+    Wait Until Element Is Visible               ${excludesmash}
+    Click Element                               ${excludesmash}
     Handle Alert        action=ACCEPT
 Desativar e Excluir All in One
-    Sleep               10
-    Click Element       ${desativateallinone}
-    Sleep               10
-    Click Element       ${excludeallinone}
+    Sleep                                       5
+    Click Element                               ${desativateallinone}
+    Wait Until Element Is Visible               ${excludeallinone}
+    Click Element                               ${excludeallinone}
     Handle Alert        action=ACCEPT
 Desativar e Excluir Honeypot
-    Sleep               10
-    Click Element       ${desativatehoneypot}
-    Sleep               10
-    Click Element       ${excludehoneypot}
+    Sleep                                       5
+    Click Element                               ${desativatehoneypot}
+    Wait Until Element Is Visible               ${excludehoneypot}
+    Click Element                               ${excludehoneypot}
     Handle Alert        action=ACCEPT
 Desativar e Excluir Custom Icons
-    Sleep               10
-    Click Element       ${desativatecustomicons}
-    Sleep               10
-    Click Element       ${excludecustomicons}
+    Sleep                                       7
+    Click Element                               ${desativatecustomicons}
+    Wait Until Element Is Visible               ${excludecustomicons}
+    Click Element                               ${excludecustomicons}
     Handle Alert        action=ACCEPT
 Desativar e Excluir Recent Tweets
-    Sleep               10
-    Click Element       ${desativaterecenttweets}
-    Sleep               10
-    Click Element       ${excluderecenttweets}
+    Sleep                                       8
+    Click Element                               ${desativaterecenttweets}
+    Wait Until Element Is Visible               ${excluderecenttweets}
+    Click Element                               ${excluderecenttweets}
     Handle Alert        action=ACCEPT
-    Sleep               5
