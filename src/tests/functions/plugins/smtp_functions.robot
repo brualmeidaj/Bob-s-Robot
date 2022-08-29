@@ -12,27 +12,34 @@ ${ativar_plugin_cimy}       id:activate-cimy-swift-smtp
 
 *** Keywords ***
 Processa SMTP
-    Entrar no plugin de url e fazer upload
-    Configuração CIMY
-    Envio e-mail teste
+    Go To               ${pagepluginsunstall}
+
+    ${desativaraskimet}=             Get Element Count               xpath://*[@aria-label='Desativar Akismet Anti-Spam']
+
+    IF  ${desativaraskimet} != 0
+        Entrar no plugin de url e fazer upload
+        Configuração CIMY
+        Envio e-mail teste
+    END
+
 
 Entrar no plugin de url e fazer upload 
-    Sleep                   10
-    Go To                   ${page_url_plugin}
-    Sleep                   5
-    Click Element           ${campo_plugin_url} 
-    Input Text              ${campo_plugin_url}                 ${link_baixarplugin}
-    Sleep                   10
-    Click Element           ${botao_upload_plugin} 
-    Sleep                   10
-    Go To                   ${website_url}/wp-admin/plugins.php
-    Click Element           ${ativar_plugin_cimy}
-    Sleep                   5
+    Sleep                       10
+    Go To                       ${page_url_plugin}
+    Sleep                       5
+    Click Element               ${campo_plugin_url} 
+    Input Text                  ${campo_plugin_url}                 ${link_baixarplugin}
+    Sleep                       10
+    Click Element               ${botao_upload_plugin} 
+    Sleep                       10
+    Go To                       ${website_url}/wp-admin/plugins.php
+    Click Element               ${ativar_plugin_cimy}
+    Sleep                       5
 Configuração CIMY   
-    Go To                   ${configurarcimy}
-    Input Text              id:css_sender_name              ${website_nome}
-    Input Text              id:css_sender_mail              ${emailcimy}
-    Click Element           id:css_sender_overwrite_always
+    Go To                       ${configurarcimy}
+    Input Text                  id:css_sender_name              ${website_nome}
+    Input Text                  id:css_sender_mail              ${emailcimy}
+    Click Element               id:css_sender_overwrite_always
     Input Text                  id:css_server               smtp.emailemnuvem.com.br
     Click Element               id:css_port
     Click Element               css:option[value="465"]
