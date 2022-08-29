@@ -6,35 +6,35 @@ ${link_baixarplugin}        https://projetos.agenciaalper.com.br/fide/plugins/ci
 ${campo_plugin_url}         id:urlpluginzip
 ${botao_upload_plugin}      id:url-install-plugin-submit
 ${ativar_plugin_cimy}       id:activate-cimy-swift-smtp
+${campotestemail}           css:input[name="testemail"]
 
 
 
 
 *** Keywords ***
 Processa SMTP
-    Go To               ${pagepluginsunstall}
+    Go To               ${website_url}/wp-admin/plugins.php
 
-    ${desativaraskimet}=             Get Element Count               xpath://*[@aria-label='Desativar Akismet Anti-Spam']
-
-    IF  ${desativaraskimet} != 0
+    ${checkcimy}=             Get Element Count               xpath://*[contains(text(), "Cimy Swift SMTP")]
+    IF  ${checkcimy} == 0
         Entrar no plugin de url e fazer upload
         Configuração CIMY
-        Envio e-mail teste
+        # Envio e-mail teste
     END
 
 
 Entrar no plugin de url e fazer upload 
-    Sleep                       10
-    Go To                       ${page_url_plugin}
-    Sleep                       5
-    Click Element               ${campo_plugin_url} 
-    Input Text                  ${campo_plugin_url}                 ${link_baixarplugin}
-    Sleep                       10
-    Click Element               ${botao_upload_plugin} 
-    Sleep                       10
-    Go To                       ${website_url}/wp-admin/plugins.php
-    Click Element               ${ativar_plugin_cimy}
-    Sleep                       5
+    Go To                                                       ${page_url_plugin}
+    Wait Until Element Is Visible                               ${campo_plugin_url}
+    Click Element                                               ${campo_plugin_url} 
+    Input Text              ${campo_plugin_url}                 ${link_baixarplugin}
+    Click Element                                               ${botao_upload_plugin} 
+    Sleep                                                       5
+    Go To                                                       ${website_url}/wp-admin/plugins.php
+    Wait Until Element Is Visible                               ${ativar_plugin_cimy}
+    Click Element                                               ${ativar_plugin_cimy}
+    Sleep                                                       5
+
 Configuração CIMY   
     Go To                       ${configurarcimy}
     Input Text                  id:css_sender_name              ${website_nome}
@@ -49,8 +49,9 @@ Configuração CIMY
     Click Element               css:option[value="ssl"]
     Click Button                css:input[value="Salvar alterações"]
 
-Envio e-mail teste
-    Input Text                  css:input[name="testemail"]                 ${website_email_teste}
-    Click Element               class:button
+# Envio e-mail teste
+#     Sleep                       5
+#     Input Text                  ${campotestemail}          ${email_teste}
+#     Click Element               class:button
 
 
