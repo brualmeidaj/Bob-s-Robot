@@ -23,8 +23,7 @@ Plugin URL upload
     Input Text              ${plugin_url_seletor_boxpesquisar}           ${plugin_url_name}
     Wait Until Element Is Visible               ${checkurlplugin}
     Click Element                               ${plugin_url_seletor_instalar}
-    Sleep                                       5
-
+    Sleep                                       7
 Plugin URL Ativar
     Go To                                       ${website_url}/wp-admin/plugins.php
     Wait Until Element Is Visible               ${plugin_url_seletor_ativar}

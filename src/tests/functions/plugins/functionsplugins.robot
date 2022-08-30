@@ -5,6 +5,6 @@ Processa Plugins
     # Processa Exclusão de plugins !
     # Processa 404
     # Processa URL
-    Processa SMTP
-    # Processa WP CACHE
+    # Processa SMTP
+    Processa WP CACHE
     # Processa DATABASE
