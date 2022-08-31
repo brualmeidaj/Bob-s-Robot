@@ -1,7 +1,7 @@
 *** Variables ***
 ${plugin_url_name}                              Plugin Installer from public URL
 ${plugin_url_seletor_boxpesquisar}              class:wp-filter-search
-${plugin_url_seletor_instalar}                  xpath://*[@id="the-list"]//li
+${plugin_url_seletor_instalar}                  xpath://*[@data-slug='plugin-installer-from-public-url']
 ${plugin_url_seletor_ativar}                    xpath://*[@aria-label='Ativar Plugin Installer from public URL']
 ${checkurlplugin}                               xpath://*[contains(text(), "Plugin Installer from public URL")]
 
@@ -14,7 +14,6 @@ Processa URL
 
     IF  ${checkurlplugin} == 0
         Plugin URL upload
-        Plugin URL Ativar
     END
 
 Plugin URL upload
@@ -24,7 +23,4 @@ Plugin URL upload
     Wait Until Element Is Visible               ${checkurlplugin}
     Click Element                               ${plugin_url_seletor_instalar}
     Sleep                                       7
-Plugin URL Ativar
-    Go To                                       ${website_url}/wp-admin/plugins.php
-    Wait Until Element Is Visible               ${plugin_url_seletor_ativar}
-    Click Element                               ${plugin_url_seletor_ativar}
+    Click Element                               ${plugin_url_seletor_instalar}

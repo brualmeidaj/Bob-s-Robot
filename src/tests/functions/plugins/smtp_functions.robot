@@ -5,7 +5,7 @@ ${emailcimy}                form@servermail.srv.br
 ${link_baixarplugin}        https://projetos.agenciaalper.com.br/fide/plugins/cimy.zip
 ${campo_plugin_url}         id:urlpluginzip
 ${botao_upload_plugin}      id:url-install-plugin-submit
-${ativar_plugin_cimy}       id:activate-cimy-swift-smtp
+${ativar_plugin_cimy}       xpath://*[@aria-label='Ativar Cimy Swift SMTP']
 ${campotestemail}           css:input[name="testemail"]
 
 
@@ -49,9 +49,9 @@ Configuração CIMY
     Click Element               css:option[value="ssl"]
     Click Button                css:input[value="Salvar alterações"]
 
-# Envio e-mail teste
-#     Sleep                       5
-#     Input Text                  ${campotestemail}          ${email_teste}
-#     Click Element               class:button
+Envio e-mail teste
+    Sleep                       5
+    Input Text                  ${campotestemail}          ${website_teste}
+    Click Element               class:button
 
 

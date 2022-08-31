@@ -5,9 +5,9 @@ ${link_plugin_baixar}       https://projetos.agenciaalper.com.br/fide/plugins/wp
 ${botao_plugin_upload}      id:url-install-plugin-submit
 ${box_pesquisar}            class:wp-filter-search
 ${plugin_wpcache}           wp fastest cache
-${instalarwpcache}          xpath://*[@id="the-list"]//li
-${ativarwpcachepremium}     id:activate-wp-fastest-cache-premium
-${ativarwpcache}            id:activate-wp-fastest-cache
+${instalarwpcache}          xpath://*[@data-slug='wp-fastest-cache']
+${ativarwpcachepremium}     xpath://*[@aria-label='Ativar WP Fastest Cache Premium']
+${ativarwpcache}            xpath://*[@aria-label='Ativar WP Fastest Cache']
 ${checkbox1}                id:wpFastestCacheStatus
 ${checkbox2}                id:wpFastestCacheWidgetCache                   
 ${checkbox3}                id:wpFastestCacheLoggedInUser
@@ -54,9 +54,7 @@ Baixar WP FASTEST CACHE e Ativar
     Wait Until Element Is Visible                               ${instalarwpcache}
     Click Element                                               ${instalarwpcache}
     Sleep                                                       7
-    Go To                                                       ${website_url}/wp-admin/plugins.php
-    Wait Until Element Is Visible                               ${ativarwpcache}
-    Click Element                                               ${ativarwpcache}
+    Click Element                                               ${instalarwpcache}
 
 Entrar no plugin de url e fazer upload WP
     Go To                                                       ${page_plugin_url}

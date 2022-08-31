@@ -30,7 +30,7 @@ Processa Exclusão de plugins
         Desativar Askimet
     END
 
-    ${askimetantispan}=             Get Element Count               xpath://*[contains(text(), "Akismet Anti-Spam")]
+    ${askimetantispan}=             Get Element Count               xpath://*[@data-slug='akismet']
 
 
     IF  ${askimetantispan} != 0
@@ -49,84 +49,149 @@ Processa Exclusão de plugins
         Desativar e Excluir Breadcrumb
     END
 
-    ${smashballoon}=             Get Element Count               xpath://*[contains(text(), "Smash Balloon Instagram Feed")]
+    ${smashballoon}=             Get Element Count               xpath://*[@data-slug='instagram-feed']
 
     IF  ${smashballoon} != 0
         Desativar e Excluir Smash Balloon
     END
 
-    ${allinone}=             Get Element Count               xpath://*[contains(text(), "All-in-One WP Migration")]
+    ${allinone}=             Get Element Count               xpath://*[@data-slug='all-in-one-wp-migration']
 
     IF  ${allinone} != 0
-        Desativar e Excluir All in One
+        Desativar e Excluir All In One
     END
 
-    ${honeypot}=             Get Element Count               xpath://*[contains(text(), "Honeypot for Contact Form 7")]
+    ${honeypot}=             Get Element Count               xpath://*[@data-slug='contact-form-7-honeypot']
 
     IF  ${honeypot} != 0
         Desativar e Excluir Honeypot
     END
 
-    ${customicons}=             Get Element Count               xpath://*[contains(text(), "Custom Icons by Stylemixthemes")]
+    ${customicons}=             Get Element Count               xpath://*[@data-slug='custom-icons-by-stylemixthemes']
 
     IF  ${customicons} != 0
         Desativar e Excluir Custom Icons
     END
 
-    ${recenttweets}=             Get Element Count               xpath://*[contains(text(), "Recent Tweets Widget")]
+    ${recenttweets}=             Get Element Count               xpath://*[@data-slug='recent-tweets-widget']
+
+    IF  ${recenttweets} != 0
+        Desativar e Excluir Recent Tweets
+    END
+    
+    ${desableall}=             Get Element Count               css:input[name="checked[]"]
+
+    IF  ${desableall} != 0
+        Desativar
+    END
+    
+
+    ${askimetantispan}=             Get Element Count               xpath://*[@data-slug='akismet']
+
+
+    IF  ${askimetantispan} != 0
+        Exclusão Askimet Anti-Spam
+    END
+
+    ${booked}=             Get Element Count               xpath://*[@aria-label='Desativar Booked']
+
+    IF  ${booked} != 0
+        Desativar e Excluir Booked
+    END
+
+    ${breadcrumb}=             Get Element Count               xpath://*[@aria-label='Desativar Breadcrumb NavXT']
+
+    IF  ${breadcrumb} != 0
+        Desativar e Excluir Breadcrumb
+    END
+
+    ${smashballoon}=             Get Element Count               xpath://*[@data-slug='instagram-feed']
+
+    IF  ${smashballoon} != 0
+        Desativar e Excluir Smash Balloon
+    END
+
+    ${allinone}=             Get Element Count               xpath://*[@data-slug='all-in-one-wp-migration']
+
+    IF  ${allinone} != 0
+        Desativar e Excluir All In One
+    END
+
+    ${honeypot}=             Get Element Count               xpath://*[@data-slug='contact-form-7-honeypot']
+
+    IF  ${honeypot} != 0
+        Desativar e Excluir Honeypot
+    END
+
+    ${customicons}=             Get Element Count               xpath://*[@data-slug='custom-icons-by-stylemixthemes']
+
+    IF  ${customicons} != 0
+        Desativar e Excluir Custom Icons
+    END
+
+    ${recenttweets}=             Get Element Count               xpath://*[@data-slug='recent-tweets-widget']
 
     IF  ${recenttweets} != 0
         Desativar e Excluir Recent Tweets
     END
 
+    Excluir
+
 Desativar Askimet
-    Wait Until Element Is Visible               ${desativaraskimet}
+    Sleep                                       7
     Click Element                               ${desativaraskimet}
 
 Exclusão Askimet Anti-Spam
-    Sleep                                       5
+    Sleep                                       7
     Click Element                               ${excludeaskimet}
     Handle Alert            action=ACCEPT
 
 Desativar e Excluir Booked
-    Sleep                                       5
+    Sleep                                       7
     Click Element                               ${desativatebooked}
-    Wait Until Element Is Visible               ${excludebooked}
+    Sleep                                       7
     Click Element                               ${excludebooked}
     Handle Alert        action=ACCEPT
 Desativar e Excluir Breadcrumb
-    Sleep                                       5
+    Sleep                                       7
     Click Element                               ${desativatebreadcrumb}
-    Wait Until Element Is Visible               ${excludebreadcrumb}
+    Sleep                                       7
     Click Element                               ${excludebreadcrumb}
     Handle Alert        action=ACCEPT
 Desativar e Excluir Smash Balloon 
-    Sleep                                       5
+    Sleep                                       7
     Click Element                               ${desativatesmash}
-    Wait Until Element Is Visible               ${excludesmash}
+    Sleep                                       7
     Click Element                               ${excludesmash}
     Handle Alert        action=ACCEPT
-Desativar e Excluir All in One
-    Sleep                                       5
-    Click Element                               ${desativateallinone}
-    Wait Until Element Is Visible               ${excludeallinone}
-    Click Element                               ${excludeallinone}
-    Handle Alert        action=ACCEPT
+
+Desativar e Excluir All In One
+    Wait Until Element Is Visible               css:input[value="all-in-one-wp-migration/all-in-one-wp-migration.php"]
+    Click Element                               css:input[value="all-in-one-wp-migration/all-in-one-wp-migration.php"]
+
 Desativar e Excluir Honeypot
-    Sleep                                       5
-    Click Element                               ${desativatehoneypot}
-    Wait Until Element Is Visible               ${excludehoneypot}
-    Click Element                               ${excludehoneypot}
-    Handle Alert        action=ACCEPT
+    Wait Until Element Is Visible               css:input[value="contact-form-7-honeypot/honeypot.php"]
+    Click Element                               css:input[value="contact-form-7-honeypot/honeypot.php"]
+
 Desativar e Excluir Custom Icons
-    Sleep                                       7
-    Click Element                               ${desativatecustomicons}
-    Wait Until Element Is Visible               ${excludecustomicons}
-    Click Element                               ${excludecustomicons}
-    Handle Alert        action=ACCEPT
+    Wait Until Element Is Visible               css:input[value="custom-icons-by-stylemixthemes/stm-custom-icons.php"]
+    Click Element                               css:input[value="custom-icons-by-stylemixthemes/stm-custom-icons.php"]
+
 Desativar e Excluir Recent Tweets
-    Sleep                                       8
-    Click Element                               ${desativaterecenttweets}
-    Wait Until Element Is Visible               ${excluderecenttweets}
-    Click Element                               ${excluderecenttweets}
+    Wait Until Element Is Visible               css:input[value="recent-tweets-widget/recent-tweets.php"]
+    Click Element                               css:input[value="recent-tweets-widget/recent-tweets.php"]
+
+Desativar
+    Wait Until Element Is Visible               css:select[name="action"]
+    Click Element                               css:select[name="action"]
+    Click Element                               css:option[value="deactivate-selected"]
+    Click Element                               id:doaction
+    Sleep                                       7
+
+Excluir
+    Sleep                                       7
+    Click Element                               css:select[name="action"]
+    Click Element                               css:option[value="delete-selected"]
+    Click Element                               id:doaction
     Handle Alert        action=ACCEPT
+
