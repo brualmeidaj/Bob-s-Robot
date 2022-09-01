@@ -1,8 +1,8 @@
 *** Keywords ***
     
 Processa Plugins 
+    Processa Exclusão de plugins 
     Processa WpRename
-    # Processa Exclusão de plugins 
     Processa 404
     Processa URL
     Processa SMTP

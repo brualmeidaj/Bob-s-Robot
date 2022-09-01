@@ -18,7 +18,7 @@ Processa URL
 
 Plugin URL upload
     Go To                                       ${website_url}/wp-admin/plugin-install.php
-    Wait Until Element Is Visible               ${plugin_url_seletor_boxpesquisar}
+    Sleep                                       7
     Input Text              ${plugin_url_seletor_boxpesquisar}           ${plugin_url_name}
     Wait Until Element Is Visible               ${checkurlplugin}
     Click Element                               ${plugin_url_seletor_instalar}

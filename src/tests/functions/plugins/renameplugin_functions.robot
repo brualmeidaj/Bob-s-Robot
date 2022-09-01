@@ -2,7 +2,6 @@
 ${plugin_rename}        Change wp-admin login
 ${renamecheck}          xpath://*[contains(text(), "Change wp-admin login")]
 ${botaoplugins}         id:menu-plugins
-${botaoadicionar}       xpath://*[@id='menu-plugins']/ul/li[4]   
 ${boxpesquisar}         class:wp-filter-search    
 ${instalareativar}      xpath://*[@data-slug='change-wp-admin-login']
 ${mudarurl}             id:rwl-page-input
