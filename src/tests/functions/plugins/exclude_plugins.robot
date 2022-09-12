@@ -9,91 +9,59 @@ Processa Exclusão de plugins
 
     IF  ${askimet} != 0
         Desativar e Excluir Askimet Anti-Spam
+        Desativar
     END
 
-    ${booked}=             Get Element Count               xpath://*[@data-slug='booked']
+    ${booked}=             Geadfet Element Count               xpath://*[@data-slug='booked']
 
     IF  ${booked} != 0
         Desativar e Excluir Booked
+        Desativar
     END
 
     ${breadcrumb}=             Get Element Count               xpath://*[@data-slug='breadcrumb-navxt']
 
     IF  ${breadcrumb} != 0
         Desativar e Excluir Breadcrumb
+        Desativar
     END
 
     ${honeypot}=             Get Element Count               xpath://*[@data-slug='contact-form-7-honeypot']
 
     IF  ${honeypot} != 0
         Desativar e Excluir Honeypot
+        Desativar
     END
-
-    ${customicons}=             Get Element Count               xpath://*[@data-slug='custom-icons-by-stylemixthemes']
-
-    IF  ${customicons} != 0
-        Desativar e Excluir Custom Icons
-    END
-
-    ${smashballoon}=             Get Element Count               xpath://*[@data-slug='instagram-feed']
-
-    IF  ${smashballoon} != 0
-        Desativar e Excluir Smash Balloon
-    END
-
-
-    # ${recenttweets}=             Get Element Count               xpath://*[@data-slug='recent-tweets-widget']
-
-    # IF  ${recenttweets} != 0
-    #     Desativar e Excluir Recent Tweets
-    # END
-
-    Desativar
 
 
     ${askimet}=             Get Element Count               xpath://*[@data-slug='akismet']
 
     IF  ${askimet} != 0
         Desativar e Excluir Askimet Anti-Spam
+        Excluir
     END
 
     ${booked}=             Get Element Count               xpath://*[@data-slug='booked']
 
     IF  ${booked} != 0
         Desativar e Excluir Booked
+        Excluir
     END
 
     ${breadcrumb}=             Get Element Count               xpath://*[@data-slug='breadcrumb-navxt']
 
     IF  ${breadcrumb} != 0
         Desativar e Excluir Breadcrumb
+        Excluir
     END
 
     ${honeypot}=             Get Element Count               xpath://*[@data-slug='contact-form-7-honeypot']
 
     IF  ${honeypot} != 0
         Desativar e Excluir Honeypot
+        Excluir
     END
 
-    ${smashballoon}=             Get Element Count               xpath://*[@data-slug='instagram-feed']
-
-    IF  ${smashballoon} != 0
-        Desativar e Excluir Smash Balloon
-    END
-
-    ${customicons}=             Get Element Count               xpath://*[@data-slug='custom-icons-by-stylemixthemes']
-
-    IF  ${customicons} != 0
-        Desativar e Excluir Custom Icons
-    END
-
-    # ${recenttweets}=             Get Element Count               xpath://*[@data-slug='recent-tweets-widget']
-
-    # IF  ${recenttweets} != 0
-    #     Desativar e Excluir Recent Tweets
-    # END
-
-    Excluir
 
 Desativar e Excluir Askimet Anti-Spam
     Wait Until Element Is Visible               css:input[value="akismet/akismet.php"]
@@ -113,29 +81,12 @@ Desativar e Excluir Breadcrumb
     Run Keyword If    css:input[value="breadcrumb-navxt/breadcrumb-navxt.php"] == True         Sleep    3s
     Click Element                               css:input[value="breadcrumb-navxt/breadcrumb-navxt.php"]
 
-Desativar e Excluir Smash Balloon 
-    Wait Until Element Is Visible               css:input[value="instagram-feed/instagram-feed.php"]
-    Mouse Down                                  css:input[value="instagram-feed/instagram-feed.php"]
-    Run Keyword If    css:input[value="instagram-feed/instagram-feed.php"] == True         Sleep    3s
-    Click Element                               css:input[value="instagram-feed/instagram-feed.php"]
-
 Desativar e Excluir Honeypot
     Wait Until Element Is Visible               css:input[value="contact-form-7-honeypot/honeypot.php"]
     Mouse Down                                  css:input[value="contact-form-7-honeypot/honeypot.php"]
     Run Keyword If    css:input[value="contact-form-7-honeypot/honeypot.php"] == True         Sleep    3s
     Click Element                               css:input[value="contact-form-7-honeypot/honeypot.php"]
 
-Desativar e Excluir Custom Icons
-    Wait Until Element Is Visible               css:input[value="custom-icons-by-stylemixthemes/stm-custom-icons.php"]
-    Mouse Down                                  css:input[value="custom-icons-by-stylemixthemes/stm-custom-icons.php"]
-    Run Keyword If    css:input[value="custom-icons-by-stylemixthemes/stm-custom-icons.php"] == True         Sleep    3s
-    Click Element                               css:input[value="custom-icons-by-stylemixthemes/stm-custom-icons.php"]
-
-Desativar e Excluir Recent Tweets
-    Wait Until Element Is Visible               css:input[value="recent-tweets-widget/recent-tweets.php"]
-    Mouse Down                                  css:input[value="recent-tweets-widget/recent-tweets.php"]
-    Run Keyword If              css:input[value="recent-tweets-widget/recent-tweets.php"] == True                   Sleep    3s
-    Click Element                               css:input[value="recent-tweets-widget/recent-tweets.php"]
 
 Desativar
     Sleep                                       7
